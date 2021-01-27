@@ -1,0 +1,44 @@
+version: '3'
+
+networks:
+  benchmark:
+    driver: bridge
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongo-benchmark
+    environment: 
+    - MONGO_INITDB_ROOT_USERNAME=benchmark
+    - MONGO_INITDB_ROOT_PASSWORD=benchmark
+    volumes:
+      - .docker/mongodb/data:/data/db
+    ports:
+      - '27018:27017'
+    networks:
+      - benchmark
+  redis:
+    image: redis
+    container_name: redis-benchmark
+    command: redis-server --requirepass benchmark
+    ports:
+      - '6379:6379'
+  in-process-server:
+    container_name: in-process-server
+    build:
+      context: ./packages/in-process-server
+    environment: 
+      - API_PORT=8000
+      - MONGO_URI=mongodb://benchmark:benchmark@mongo/playground?authSource=admin
+    networks:
+      - benchmark
+  redis-server:
+    container_name: in-process-server
+    build:
+      context: ./packages/in-process-server
+    environment: 
+      - API_PORT=8001
+      - MONGO_URI=mongodb://benchmark:benchmark@mongo/playground?authSource=admin
+    networks:
+      - benchmark
+

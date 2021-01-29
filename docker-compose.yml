@@ -42,6 +42,7 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_PASSWORD=benchmark
+      - LOG_LEVEL=all
     networks:
       - benchmark
 

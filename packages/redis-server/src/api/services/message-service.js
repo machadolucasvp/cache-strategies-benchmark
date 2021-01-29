@@ -18,7 +18,7 @@ class MessageService {
         return cachedMesage
     }
 
-    static searchByDescription(description) {
+    static async searchByDescription(description) {
         const cachedMessage = await Cache.recover(description)
 
         if (!cachedMessage) {

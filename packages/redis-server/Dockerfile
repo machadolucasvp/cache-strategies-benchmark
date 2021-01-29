@@ -6,4 +6,4 @@ COPY package*.json ./
 RUN npm install --silent --production
 COPY ./ ./
 
-CMD ["node", "src/server.js"]
+CMD ["node", "src/index.js"]

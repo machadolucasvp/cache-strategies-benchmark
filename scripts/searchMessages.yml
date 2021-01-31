@@ -1,0 +1,20 @@
+config:
+  target: "http://localhost:8000/messages"
+  phases:
+    - duration: 120
+      arrivalRate: 10
+      rampTo: 100
+      name: "Warm up"
+    - duration: 60
+      arrivalRate: 100
+      name: "Max load"
+  payload:
+    path: "./search-messages-payload.csv"
+    fields:
+      - "description"
+    order: sequence 
+scenarios:
+  - flow:
+    - get:
+        url: "/search?description={{ description }}"
+     

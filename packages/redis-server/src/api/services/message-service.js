@@ -13,7 +13,8 @@ class MessageService {
             logger.info(`cache miss message:${id}`)
             const message = await Message.findById(id)
 
-            return Cache.set(id, message)
+            Cache.set(id, message)
+            return message
         }
         return cachedMesage
     }
@@ -23,9 +24,10 @@ class MessageService {
 
         if (!cachedMessage) {
             logger.info(`cache miss message:${description}`)
-            const message = Message.find({ description: { $regex: description } })
+            const message = await Message.findOne({ description: { $regex: description } }).limit(10)
 
-            return Cache.set(description, message)
+            Cache.set(description, message)
+            return message
         }
         return cachedMessage
     }

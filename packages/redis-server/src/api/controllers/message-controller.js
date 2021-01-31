@@ -12,10 +12,10 @@ class MessageController {
     }
 
     static async onGetByDescription(req, res) {
-        const { searchDescription } = req.params
-        logger.trace(`receiving request for ${searchDescription}`)
+        const { description } = req.query
+        logger.trace(`receiving request for ${description}`)
 
-        res.send(await MessageService.searchByDescription(searchDescription))
+        res.send(await MessageService.searchByDescription(description))
     }
 }
 

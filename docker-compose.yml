@@ -35,7 +35,7 @@ services:
   redis-server:
     container_name: redis-server
     build:
-      context: ./packages/in-process-server
+      context: ./packages/redis-server
     environment: 
       - API_PORT=8001
       - MONGO_URI=mongodb://benchmark:benchmark@mongodb/playground?authSource=admin

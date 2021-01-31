@@ -23,6 +23,8 @@ services:
     command: redis-server --requirepass benchmark
     ports:
       - '6379:6379'
+    networks:
+      - benchmark
   in-process-server:
     container_name: in-process-server
     build:
@@ -30,6 +32,9 @@ services:
     environment: 
       - API_PORT=8000
       - MONGO_URI=mongodb://benchmark:benchmark@mongodb/playground?authSource=admin
+    depends_on: 
+      - redis
+      - mongodb
     networks:
       - benchmark
   redis-server:
@@ -43,6 +48,9 @@ services:
       - REDIS_PORT=6379
       - REDIS_PASSWORD=benchmark
       - LOG_LEVEL=all
+    depends_on: 
+      - redis
+      - mongodb
     networks:
       - benchmark
 

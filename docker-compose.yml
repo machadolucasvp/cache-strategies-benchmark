@@ -32,8 +32,9 @@ services:
     environment: 
       - API_PORT=8000
       - MONGO_URI=mongodb://benchmark:benchmark@mongodb/playground?authSource=admin
+      - MAX_CACHE_SIZE=1000
+      - LOG_LEVEL=all
     depends_on: 
-      - redis
       - mongodb
     networks:
       - benchmark

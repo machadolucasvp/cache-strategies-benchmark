@@ -1,4 +1,7 @@
-const Redis = require('ioredis');
+const Redis = require('ioredis')
+const Logger = require('./logger')
+
+const logger = Logger.getLogger('redis')
 
 const redis = new Redis({
     host: process.env.REDIS_HOST,
@@ -6,8 +9,8 @@ const redis = new Redis({
     password: process.env.REDIS_PASSWORD
 })
 
-redis.on('error', (err) => console.log('[REDIS] connection error', err))
-redis.on('reconnecting', () => console.log('[REDIS] reconnecting'))
-redis.on('ready', () => console.log('[REDIS] ready'))
+redis.on('error', (err) => logger.info('connection error', err))
+redis.on('reconnecting', () => logger.info('reconnecting'))
+redis.on('ready', () => logger.info('ready'))
 
 module.exports = redis

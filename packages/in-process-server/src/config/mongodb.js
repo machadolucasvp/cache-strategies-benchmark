@@ -1,4 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
+const Logger = require('./logger')
+
+const logger = Logger.getLogger('mongodb')
 
 const bootstrap = () =>
   mongoose.connect(process.env.MONGO_URI, {
@@ -6,18 +9,18 @@ const bootstrap = () =>
     useUnifiedTopology: true,
     useCreateIndex: true,
     keepAlive: 1,
-  });
+  })
 
 const onError = (error) => {
-  console.log(error)
-  throw new Error('failed to connect with mongodb');
-};
+  logger.warn('a problem occurred', error)
+  throw new Error('failed to connect with mongodb')
+}
 
 mongoose.connection.on('disconnect', () => {
-  console.log('[MONGO]: Disconnected');
+  logger.warn('disconnected')
   bootstrap();
-});
+})
 
-mongoose.connection.on('error', onError);
+mongoose.connection.on('error', onError)
 
-module.exports = { bootstrap };
+module.exports = { bootstrap }

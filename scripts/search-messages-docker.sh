@@ -1,4 +1,5 @@
-docker inspect $1 \
-    -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' \
-    | xargs -I '$0' echo 'http://$0:8001/messages' \
-    | xargs -I '$:target' artillery run ./searchMessages.yml --target '$:target'
+echo \
+"$(docker inspect $1 -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}')":\
+"$(docker inspect $1 -f '{{ .Config.Env }}' | tr ' ' '\n' | grep API_PORT | sed 's/^.*=//')"\
+| xargs -I '$:dns' echo 'http://$:dns/messages' \
+| xargs -I '$:target' artillery run ./searchMessages.yml --target '$:target'

@@ -1,3 +1,4 @@
+const compose = require('lodash/fp/compose')
 const CacheService = require('../services/cache-service')
 const Message = require("../models/message-model")
 const Logger = require('../../config/logger')
@@ -19,17 +20,25 @@ class MessageService {
         return cachedMesage
     }
 
-    static async searchByDescription(description) {
-        const cachedMessage = await Cache.recover(description)
+    static async getByDescription(description) {
+        const allCacheMessages = JSON.parse(await Cache.recover('all')) || []
 
-        if (!cachedMessage) {
-            logger.info(`cache miss message:${description}`)
-            const message = await Message.findOne({ description: { $regex: description } }).limit(10)
+        let foundMessage = MessageService.searchByDescription(allCacheMessages, description)
+        if (foundMessage.length == 0) {
+            logger.info(`cache miss message:all for ${description}`)
+            const allMessages = await Message.find()
+            foundMessage = MessageService.searchByDescription(allMessages, description)
 
-            Cache.set(description, message)
-            return message
+            if (foundMessage) Cache.set('all', allMessages)
         }
-        return cachedMessage
+        return foundMessage
+    }
+
+    static searchByDescription(messages, description) {
+        const getDescription = message => message.description || ''
+        const isMessageMatch = compose(Util.isStrMatch(description), getDescription)
+
+        return messages.filter(isMessageMatch)
     }
 }
 

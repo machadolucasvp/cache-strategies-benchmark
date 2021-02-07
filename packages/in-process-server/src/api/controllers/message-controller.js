@@ -15,7 +15,7 @@ class MessageController {
         const { description } = req.query
         logger.trace(`receiving request for ${description}`)
 
-        res.send(await MessageService.searchByDescription(description))
+        res.send(await MessageService.getByDescription(description))
     }
 }
 

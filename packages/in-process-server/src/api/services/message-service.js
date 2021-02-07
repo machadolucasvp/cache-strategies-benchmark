@@ -7,19 +7,6 @@ const Cache = CacheService.getContext('message')
 const logger = Logger.getLogger('message-service')
 
 class MessageService {
-    static async getMessage(id) {
-        const cachedMesage = await Cache.recover(id)
-
-        if (!cachedMesage) {
-            logger.info(`cache miss message:${id}`)
-            const message = await Message.findById(id)
-
-            Cache.set(id, message)
-            return message
-        }
-        return cachedMesage
-    }
-
     static async getByDescription(description) {
         const allCacheMessages = JSON.parse(await Cache.recover('all')) || []
 

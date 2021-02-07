@@ -1,7 +1,7 @@
 config:
-  target: "http://172.21.0.3:8001/messages"
+  target: "http://localhost:8000/messages"
   phases:
-    - duration: 120
+    - duration: 15
       arrivalRate: 50
       rampTo: 200
       name: "Warm up"
@@ -9,7 +9,7 @@ config:
       arrivalRate: 200
       name: "Max load"
   payload:
-    path: "./search-messages-payload.csv"
+    path: "../resources/search-messages-payload.csv"
     fields:
       - "description"
     order: sequence 

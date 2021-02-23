@@ -9,16 +9,22 @@ services:
     image: mongo
     container_name: mongo-benchmark
     environment: 
-    - MONGO_INITDB_ROOT_USERNAME=benchmark
-    - MONGO_INITDB_ROOT_PASSWORD=benchmark
+      - MONGO_INITDB_ROOT_USERNAME=benchmark
+      - MONGO_INITDB_ROOT_PASSWORD=benchmark
     volumes:
       - .docker/mongodb/data:/data/db
     ports:
       - '27018:27017'
-    command: mongoimport -db benchmark --collection messages --type json --file packages/messages.json --jsonArray
     networks:
       - benchmark
- redis:
+  mongo-seed:
+    build:
+      context: ./packages/mongo-seed
+    links: 
+      - mongodb
+    networks:
+      - benchmark
+  redis:
     image: redis
     container_name: redis-benchmark
     command: redis-server --requirepass benchmark
@@ -55,3 +61,4 @@ services:
       - mongodb
     networks:
       - benchmark
+

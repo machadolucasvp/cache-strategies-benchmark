@@ -15,9 +15,10 @@ services:
       - .docker/mongodb/data:/data/db
     ports:
       - '27018:27017'
+    command: mongoimport -db benchmark --collection messages --type json --file packages/messages.json --jsonArray
     networks:
       - benchmark
-  redis:
+ redis:
     image: redis
     container_name: redis-benchmark
     command: redis-server --requirepass benchmark
@@ -54,4 +55,3 @@ services:
       - mongodb
     networks:
       - benchmark
-

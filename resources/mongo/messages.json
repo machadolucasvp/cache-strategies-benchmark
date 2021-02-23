@@ -1,0 +1,80 @@
+[
+    {
+        "description": "hello world"
+    },
+    {
+        "message": "whats up?"
+    },
+    {
+        "message": "coffe is good"
+    },
+    {
+        "message": "i love coffe and code"
+    },
+    {
+        "message": "javascript"
+    },
+    {
+        "message": "all good?"
+    },
+    {
+        "message": "do you enjoy functional javascript ?"
+    },
+    {
+        "message": "distributed systems"
+    },
+    {
+        "message": "microservices everywhere"
+    },
+    {
+        "message": "messaging patterns everywhere"
+    },
+    {
+        "message": "idempotent services"
+    },
+    {
+        "message": "service mesh"
+    },
+    {
+        "message": "cache strategies"
+    },
+    {
+        "message": "in process cache vs distributed cache"
+    },
+    {
+        "message": "premature optimization, root of all evil"
+    },
+    {
+        "message": "whats up, all good ?"
+    },
+    {
+        "message": "world hello"
+    },
+    {
+        "message": "why not javascript"
+    },
+    {
+        "message": "functions everywhere!"
+    },
+    {
+        "message": "i love composition"
+    },
+    {
+        "message": "hello lol"
+    },
+    {
+        "message": "lmao hello"
+    },
+    {
+        "message": "all good?"
+    },
+    {
+        "message": "all bad?"
+    },
+    {
+        "message": "i love my home"
+    },
+    {
+        "message": "again ?"
+    }
+]

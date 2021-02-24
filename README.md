@@ -1,1 +1,1 @@
-# redis-benchmark
+# in-process-redis-benchmark

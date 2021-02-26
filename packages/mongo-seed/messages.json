@@ -3,78 +3,78 @@
         "description": "hello world"
     },
     {
-        "message": "whats up?"
+        "description": "whats up?"
     },
     {
-        "message": "coffe is good"
+        "description": "coffe is good"
     },
     {
-        "message": "i love coffe and code"
+        "description": "i love coffe and code"
     },
     {
-        "message": "javascript"
+        "description": "javascript"
     },
     {
-        "message": "all good?"
+        "description": "all good?"
     },
     {
-        "message": "do you enjoy functional javascript ?"
+        "description": "do you enjoy functional javascript ?"
     },
     {
-        "message": "distributed systems"
+        "description": "distributed systems"
     },
     {
-        "message": "microservices everywhere"
+        "description": "microservices everywhere"
     },
     {
-        "message": "messaging patterns everywhere"
+        "description": "messaging patterns everywhere"
     },
     {
-        "message": "idempotent services"
+        "description": "idempotent services"
     },
     {
-        "message": "service mesh"
+        "description": "service mesh"
     },
     {
-        "message": "cache strategies"
+        "description": "cache strategies"
     },
     {
-        "message": "in process cache vs distributed cache"
+        "description": "in process cache vs distributed cache"
     },
     {
-        "message": "premature optimization, root of all evil"
+        "description": "premature optimization, root of all evil"
     },
     {
-        "message": "whats up, all good ?"
+        "description": "whats up, all good ?"
     },
     {
-        "message": "world hello"
+        "description": "world hello"
     },
     {
-        "message": "why not javascript"
+        "description": "why not javascript"
     },
     {
-        "message": "functions everywhere!"
+        "description": "functions everywhere!"
     },
     {
-        "message": "i love composition"
+        "description": "i love composition"
     },
     {
-        "message": "hello lol"
+        "description": "hello lol"
     },
     {
-        "message": "lmao hello"
+        "description": "lmao hello"
     },
     {
-        "message": "all good?"
+        "description": "all good?"
     },
     {
-        "message": "all bad?"
+        "description": "all bad?"
     },
     {
-        "message": "i love my home"
+        "description": "i love my home"
     },
     {
-        "message": "again ?"
+        "description": "again ?"
     }
 ]

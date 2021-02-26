@@ -2,13 +2,14 @@ const compose = require('lodash/fp/compose')
 const CacheService = require('../services/cache-service')
 const Message = require("../models/message-model")
 const Logger = require('../../config/logger')
+const Util = require('../helpers/util')
 
 const Cache = CacheService.getContext('message')
 const logger = Logger.getLogger('message-service')
 
 class MessageService {
     static async getByDescription(description) {
-        const allCacheMessages = JSON.parse(await Cache.recover('all')) || []
+        const allCacheMessages = await Cache.recover('all') || []
 
         let foundMessage = MessageService.searchByDescription(allCacheMessages, description)
         if (foundMessage.length == 0) {

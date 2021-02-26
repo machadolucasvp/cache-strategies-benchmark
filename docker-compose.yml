@@ -38,7 +38,7 @@ services:
       context: ./packages/in-process-server
     environment: 
       - API_PORT=8000
-      - MONGO_URI=mongodb://benchmark:benchmark@mongodb/playground?authSource=admin
+      - MONGO_URI=mongodb://benchmark:benchmark@mongodb/benchmark?authSource=admin
       - MAX_CACHE_SIZE=1000
       - LOG_LEVEL=all
     depends_on: 
@@ -51,7 +51,7 @@ services:
       context: ./packages/redis-server
     environment: 
       - API_PORT=8001
-      - MONGO_URI=mongodb://benchmark:benchmark@mongodb/playground?authSource=admin
+      - MONGO_URI=mongodb://benchmark:benchmark@mongodb/benchmark?authSource=admin
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_PASSWORD=benchmark

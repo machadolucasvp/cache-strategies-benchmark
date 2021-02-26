@@ -1,11 +1,11 @@
 config:
   target: "http://localhost:8000/messages"
   phases:
-    - duration: 15
+    - duration: 30
       arrivalRate: 50
       rampTo: 200
       name: "Warm up"
-    - duration: 60
+    - duration: 120
       arrivalRate: 200
       name: "Max load"
   payload:

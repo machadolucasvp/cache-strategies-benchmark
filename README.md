@@ -10,6 +10,34 @@ This repository consist of a load test using [Artillery](https://github.com/arti
 Some days ago talking with [@des467](https://github.com/desk467), he pointed out how 
 a in-process cache strategy could have better performance compared to a distributed cache strategy in some cases. Based on this conversation, I have decided to measure the latency impact on reading operations using [node-cache](https://github.com/node-cache/node-cache) and [redis](https://github.com/redis/redis) for in-process and distributed strategy respectively in a simplified environment. 
 
+## How to run
+First you need `npm`, `docker` and `docker-compose` installed 
+
+Next, install `Artillery` 
+```bash
+npm install -g artillery
+```
+
+Next, launch the services
+```bash
+docker-compose up -d
+```
+
+Next, make the script for run the load test in docker executable
+```bash
+chmod +x ./scripts/search-messages-docker.sh
+```
+
+Next, run the load test for each service
+```bash
+./scripts/search-message-docker.sh <service-name>
+```
+i.e
+```bash
+./scripts/search-message-docker.sh in-process-server
+./scripts/search-message-docker.sh redis-server 
+```
+
 ## In-Process Cache Strategy Benchmark
 ![in-process-cache-benchmark png](https://user-images.githubusercontent.com/44952113/109252733-fd33db80-77cc-11eb-8153-af82a28b7ddc.png)
 

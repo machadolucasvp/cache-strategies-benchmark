@@ -2,11 +2,11 @@ config:
   target: "http://localhost:8000/messages"
   phases:
     - duration: 30
-      arrivalRate: 50
-      rampTo: 200
+      arrivalRate: 10
+      rampTo: 30
       name: "Warm up"
     - duration: 120
-      arrivalRate: 200
+      arrivalRate: 30
       name: "Max load"
   payload:
     path: "../resources/search-messages-payload.csv"

@@ -7,7 +7,7 @@ This repository consist of a load test using [Artillery](https://github.com/arti
 > You should not decide your cache strategy only by measuring latency. Each strategy has it's own drawbacks, for example, despite latency a in-process cache strategy do not suits well for an environment that you need shared cache data. For a deep understading of this subject I recommend the following [article](https://medium.datadriveninvestor.com/all-things-caching-use-cases-benefits-strategies-choosing-a-caching-technology-exploring-fa6c1f2e93aa).
 
 ## Motivation 
-Some days ago talking with [@des467](https://github.com/desk467), he pointed out how 
+Some days ago talking with [@desk467](https://github.com/desk467), he pointed out how 
 a in-process cache strategy could have better performance compared to a distributed cache strategy in some cases. Based on this conversation, I have decided to measure the latency impact on reading operations using [node-cache](https://github.com/node-cache/node-cache) and [redis](https://github.com/redis/redis) for in-process and distributed strategy respectively in a simplified environment. 
 
 ## How to run
